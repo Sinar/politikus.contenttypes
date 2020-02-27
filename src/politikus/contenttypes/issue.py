@@ -132,8 +132,8 @@ class View(grok.View):
 # File representation
 """
 class ProgramFileFactory(grok.Adapter):
-    """Custom file factory for programs, which always creates a Session.
-    """
+    \"""Custom file factory for programs, which always creates a Session.
+    \"""
 
     grok.implements(IFileFactory)
     grok.context(IProgram)
