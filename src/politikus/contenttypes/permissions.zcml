@@ -6,6 +6,12 @@
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission
+        id="politikus.contenttypes.AddIssue"
+        title="politikus.contenttypes: Add Issue"
+    />
+
+
 
   </configure>
 

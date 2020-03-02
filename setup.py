@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='politikus.contenttypes',
     version='1.0a1',
-    description="Main content types for the Politikus project.",
+    description="An add-on for Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
