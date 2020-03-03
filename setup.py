@@ -54,6 +54,10 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'plone.behavior',
+        'zope.schema',
+        'zope.interface',
+        'zope.component',
     ],
     extras_require={
         'test': [

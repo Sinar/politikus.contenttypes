@@ -31,7 +31,7 @@
   <property name="klass">plone.dexterity.content.Container</property>
   <property name="model_file">politikus.contenttypes.content:issue.xml</property>
   <property name="model_source"></property>
-  <property name="schema"></property>
+  <property name="schema">politikus.contenttypes.content.issue.IIssue</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
@@ -47,13 +47,14 @@
     <element value="plone.categorization"/>
     <element value="plone.basic"/>
     <element value="plone.locking" />
-    <!--<element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />-->
-    <!--<element value="plone.leadimage"/>-->
-    <!--<element value="plone.relateditems"/>-->
+    <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+    <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
+    <element value="plone.leadimage"/>
+    <element value="plone.relateditems"/>
     <!--<element value="plone.richtext"/>-->
     <!--<element value="plone.tableofcontents"/>-->
-    <!--<element value="plone.versioning" />-->
-    <!--<element value="plone.translatable" />-->
+    <element value="plone.versioning" />
+    <element value="plone.translatable" />
     <!--<element value="plone.nextprevioustoggle" />-->
     <!--<element value="plone.nextpreviousenabled" />-->
     <!--<element value="plone.navigationroot" />-->
