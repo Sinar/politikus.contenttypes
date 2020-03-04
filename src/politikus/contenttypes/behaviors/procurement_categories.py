@@ -9,6 +9,8 @@ from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
+from zope.schema.vocabulary import SimpleVocabulary
+from collective.dexteritytextindexer.utils import searchable
 
 
 class IProcurementCategoriesMarker(Interface):
@@ -19,13 +21,13 @@ class IProcurementCategoriesMarker(Interface):
 class IProcurementCategories(model.Schema):
     """
     """
-
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    procurement_categories =  schema.Choice(
+        title=_(u'Procurement categories'),
+        vocabulary=SimpleVocabulary.fromValues([_(u'fun'),_(u'plate'),_(u'triste'),_(u'honteux')]),
         required=False,
     )
 
+searchable(IProcurementCategories, 'procurement_categories')
 
 @implementer(IProcurementCategories)
 @adapter(IProcurementCategoriesMarker)
@@ -34,11 +36,11 @@ class ProcurementCategories(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def procurement_categories(self):
+        if safe_hasattr(self.context, 'procurement_categories'):
+            return self.context.procurement_categories
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @procurement_categories.setter
+    def procurement_categories(self, value):
+        self.context.procurement_categories = value

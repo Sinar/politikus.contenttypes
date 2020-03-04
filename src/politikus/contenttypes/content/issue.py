@@ -21,13 +21,8 @@ class IIssue(model.Schema):
         required=False,
     )
 
-    procurement_categories =  schema.Choice(
-        title=_(u'Procurement categories'),
-        vocabulary=SimpleVocabulary.fromValues([_(u'fun'),_(u'plate'),_(u'triste'),_(u'honteux')]),
-        required=False,
-    )
 alsoProvides(IIssue, IFormFieldProvider)
 
 @indexer(IIssue)
-def procurementCategoriesIndexer(obj):
-    return obj.procurement_categories
+def whateverCategoriesIndexer(obj):
+    return obj.whatever_categories
