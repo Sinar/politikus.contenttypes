@@ -4,5 +4,15 @@
     i18n:domain="politikus.contenttypes">
 
 <!-- -*- extra stuff goes here -*- -->
-
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.issue_procurement_categories">
+    <value key="title">Procurement Categories</value>
+    <value key="description">An index to classify procurement stories in issues.</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+        <element>plone.app.querystring.operation.string.is</element>
+    </value>
+    <value key="group">Metadata</value>
+  </records>
 </registry>
