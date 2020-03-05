@@ -21,13 +21,16 @@ class IProcurementCategoriesMarker(Interface):
 class IProcurementCategories(model.Schema):
     """
     """
-    procurement_categories =  schema.Choice(
+    procurement_categories = schema.Choice(
         title=_(u'Procurement categories'),
-        vocabulary=SimpleVocabulary.fromValues([_(u'fun'),_(u'plate'),_(u'triste'),_(u'honteux')]),
+        vocabulary=SimpleVocabulary.fromValues([_(u'fun'), _(u'plate'),
+                                                _(u'triste'), _(u'honteux')]),
         required=False,
     )
 
+
 searchable(IProcurementCategories, 'procurement_categories')
+
 
 @implementer(IProcurementCategories)
 @adapter(IProcurementCategoriesMarker)
