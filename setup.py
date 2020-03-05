@@ -58,6 +58,7 @@ setup(
         'zope.schema',
         'zope.interface',
         'zope.component',
+        'collective.dexteritytextindexer'
     ],
     extras_require={
         'test': [
