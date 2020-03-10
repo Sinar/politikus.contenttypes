@@ -59,7 +59,6 @@
     <!--<element value="plone.nextpreviousenabled" />-->
     <!--<element value="plone.navigationroot" />-->
     <!--<element value="plone.selectablecontrainstypes" />-->
-    <element value="politikus.contenttypes.behaviors.procurement_categories.IProcurementCategories"/>
   </property>
 
   <!-- View information -->

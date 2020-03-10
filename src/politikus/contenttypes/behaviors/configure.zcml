@@ -9,14 +9,4 @@
 
     <!-- -*- extra stuff goes here -*- -->
 
-    <plone:behavior
-        name="politikus.contenttypes.procurement_categories"
-        title="ProcurementCategories"
-        description="Behavior to categorize items/containers according to ProcurementCategories"
-        provides=".procurement_categories.IProcurementCategories"
-        factory=".procurement_categories.ProcurementCategories"
-        marker=".procurement_categories.IProcurementCategoriesMarker"
-        />
-
-
 </configure>

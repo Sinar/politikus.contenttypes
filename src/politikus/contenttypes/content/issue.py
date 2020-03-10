@@ -14,16 +14,3 @@ from collective import dexteritytextindexer
 class IIssue(model.Schema):
     """ Marker interface for Issue
     """
-
-    dexteritytextindexer.searchable('whatever_categories')
-    whatever_categories =  schema.Choice(
-        title=_(u'Whatever Categories'),
-        vocabulary=SimpleVocabulary.fromValues([_(u'foo'),_(u'bar'),_(u'far'),_(u'boo')]),
-        required=False,
-    )
-
-alsoProvides(IIssue, IFormFieldProvider)
-
-@indexer(IIssue)
-def whateverCategoriesIndexer(obj):
-    return obj.whatever_categories
