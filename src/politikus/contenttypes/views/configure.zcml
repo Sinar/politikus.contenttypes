@@ -5,14 +5,4 @@
     i18n_domain="politikus.contenttypes">
 
   -*- extra stuff goes here -*-
-
-  <browser:page
-    name="nice-issue-view"
-    for="..content.issue.IIssue"
-    class=".nice_issue_view.NiceIssueView"
-    template="nice_issue_view.pt"
-    permission="zope2.View"
-    />
-
-
 </configure>
