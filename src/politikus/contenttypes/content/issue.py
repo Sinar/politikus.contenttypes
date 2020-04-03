@@ -7,6 +7,7 @@ from plone.supermodel import model
 from zope import schema
 from politikus.contenttypes import _
 from zope.schema.vocabulary import SimpleVocabulary
+from zope.interface import implementer
 from plone.indexer import indexer
 from collective import dexteritytextindexer
 
@@ -14,3 +15,10 @@ from collective import dexteritytextindexer
 class IIssue(model.Schema):
     """ Marker interface for Issue
     """
+
+@implementer(IIssue)
+class Issue(Container):
+    """
+    """
+
+

@@ -21,10 +21,14 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>
   <property name="allowed_content_types">
-  <!--
-    <element value="Document" />
+    <element value="Page" />
     <element value="File" />
-  -->
+    <element value="Link" />
+    <element value="Image" />
+    <element value="Source" />
+    <element value="Person" />
+    <element value="Organization" />
+    <element value="OCDS Release" />
   </property>
   <!-- Schema, class and security -->
   <property name="add_permission">politikus.contenttypes.AddIssue</property>
@@ -51,7 +55,7 @@
     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
     <element value="plone.leadimage"/>
     <element value="plone.relateditems"/>
-    <!--<element value="plone.richtext"/>-->
+    <element value="plone.richtext"/>
     <!--<element value="plone.tableofcontents"/>-->
     <element value="plone.versioning" />
     <element value="plone.translatable" />
