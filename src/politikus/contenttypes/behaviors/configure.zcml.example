@@ -9,14 +9,4 @@
 
     <!-- -*- extra stuff goes here -*- -->
 
-    <plone:behavior
-        name="politikus.contenttypes.source_type"
-        title="SourceType"
-        description="Source type such as media report, parliamentary report etc."
-        provides=".source_type.ISourceType"
-        factory=".source_type.SourceType"
-        marker=".source_type.ISourceTypeMarker"
-        />
-
-
 </configure>
