@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="politikus.contenttypes.AddIssueSource"
+        title="politikus.contenttypes: Add IssueSource"
+    />
+
+
+    <permission
         id="politikus.contenttypes.AddIssue"
         title="politikus.contenttypes: Add Issue"
     />
