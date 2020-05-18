@@ -7,6 +7,14 @@
   -*- extra stuff goes here -*-
 
   <browser:page
+    name="issue-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".issue_view.IssueView"
+    template="issue_view.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
     name="issue-source-view"
     for="Products.CMFCore.interfaces.IFolderish"
     class=".issue_source_view.IssueSourceView"
