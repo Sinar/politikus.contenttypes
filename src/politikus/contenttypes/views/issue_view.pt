@@ -11,7 +11,7 @@
       <ul tal:repeat="item view/source_timeline">
           <li>
               <span
-                  tal:replace="python:context.toLocalizedTime(context.effective())"></span>
+                  tal:replace="python:item.toLocalizedTime(item.effective())"></span>
               &nbsp;-&nbsp;
               <a tal:attributes="href item/absolute_url">
               <span tal:content="item/title"></span>
