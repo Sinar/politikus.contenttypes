@@ -6,8 +6,107 @@
       metal:use-macro="context/main_template/macros/master">
 <body>
   <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
+
+  <h3>Timeline</h3>
+      <ul tal:repeat="item view/source_timeline">
+          <li>
+              <span
+                  tal:replace="python:context.toLocalizedTime(context.effective())"></span>
+              &nbsp;-&nbsp;
+              <a tal:attributes="href item/absolute_url">
+              <span tal:content="item/title"></span>
+              </a>(<span tal:replace="item/author" />)
+                  <p class="discreet"
+                     tal:content="item/description"></p>
+              <div tal:condition="python: len(item.directly_implicated)">
+                  <strong>Directly implicated:</strong>
+                      <span tal:repeat="implicated
+                                         item/directly_implicated">
+                          <a tal:attributes="href
+                                               implicated/to_object/absolute_url">
+                           
+                          <img
+                              tal:condition="implicated/to_object/image"
+                              tal:attributes="src string:
+                       ${implicated/to_object/absolute_url}/@@images/image/icon"
+                        />
+
+                                              
+                          <span tal:content="implicated/to_object/title"></span>
+                          </a>
+                          <tal:separator tal:condition="not:
+                                                         repeat/implicated/end">
+                          ,
+                          </tal:separator>
+                      </span>
+              </div>
+
+              <div tal:condition="python: len(item.indirectly_implicated)">
+                  <strong>Indirectly implicated:</strong>
+                      <span tal:repeat="implicated
+                                         item/indirectly_implicated">
+                          <a tal:attributes="href
+                                               implicated/to_object/absolute_url">
+                           
+                          <img
+                              tal:condition="implicated/to_object/image"
+                              tal:attributes="src string:
+                       ${implicated/to_object/absolute_url}/@@images/image/icon"
+                        />
+
+                                              
+                          <span tal:content="implicated/to_object/title"></span>
+                          </a>
+                          <tal:separator tal:condition="not:
+                                                         repeat/implicated/end">
+                          ,
+                          </tal:separator>
+                      </span>
+              </div>
+
+              <div tal:condition="python:
+                  len(item.circumstantial_implicated)">
+                  <strong>Cirmcumstantially implicated:</strong>
+                      <span tal:repeat="implicated
+                                         item/circumstantial_implicated">
+                          <a tal:attributes="href
+                                               implicated/to_object/absolute_url">
+                           
+                          <img
+                              tal:condition="implicated/to_object/image"
+                              tal:attributes="src string:
+                       ${implicated/to_object/absolute_url}/@@images/image/icon"
+                        />
+
+                                              
+                          <span tal:content="implicated/to_object/title"></span>
+                          </a>
+                          <tal:separator tal:condition="not:
+                                                         repeat/implicated/end">
+                          ,
+                          </tal:separator>
+                      </span>
+              </div>
+          </li>
+      </ul>
+
+
+
+  <h3>Notes</h3>
+
+  <div tal:content="structure view/w/notes/render"></div>
+
+  <div tal:condition="view/can_editor_view">
+      <h3>Editor Notes (Private)</h3>
+      <p class="portalMessage warning">
+      Content below is not visible to the public
+      </p>
+
+      <div tal:content="structure view/w/editor_notes/render">
+      </div>
+  </div>
+
+  
   </metal:block>
 </body>
 </html>

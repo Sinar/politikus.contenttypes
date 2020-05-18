@@ -22,11 +22,9 @@
   <property name="filter_content_types">False</property>
   <property name="allowed_content_types">
     <element value="Issue Source" />
-        <element value="Page" />
     <element value="File" />
     <element value="Link" />
     <element value="Image" />
-    <element value="Source" />
     <element value="Person" />
     <element value="Organization" />
     <element value="OCDS Release" />
@@ -56,7 +54,6 @@
     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
     <element value="plone.leadimage"/>
     <element value="plone.relateditems"/>
-    <element value="plone.richtext"/>
     <!--<element value="plone.tableofcontents"/>-->
     <element value="plone.versioning" />
     <element value="plone.translatable" />
@@ -68,7 +65,7 @@
 
   <!-- View information -->
   <property name="add_view_expr">string:${folder_url}/++add++Issue</property>
-  <property name="default_view">view</property>
+  <property name="default_view">issue-view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
   <property name="view_methods">

@@ -40,5 +40,3 @@ class IIssue(model.Schema):
 class Issue(Container):
     """
     """
-
-
