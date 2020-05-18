@@ -5,4 +5,12 @@
     i18n_domain="politikus.contenttypes">
 
   -*- extra stuff goes here -*-
+
+  <browser:page
+    name="issue-source-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".issue_source_view.IssueSourceView"
+    template="issue_source_view.pt"
+    permission="zope2.View"
+    />
 </configure>
