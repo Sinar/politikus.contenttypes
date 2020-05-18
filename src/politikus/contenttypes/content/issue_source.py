@@ -120,7 +120,8 @@ class IIssueSource(model.Schema):
         required=False,
         )
 
-    url = schema.URI(title=_(u'Source Link'),)
+    url = schema.URI(title=_(u'Source Link'),
+                     required=False,)
 
     source_file = namedfile.NamedBlobFile(
         title=_(u'Source document or file'),
