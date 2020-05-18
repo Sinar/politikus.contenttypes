@@ -7,6 +7,22 @@
 <body>
   <metal:block fill-slot="content-core">
 
+        <h3>Issue</h3>
+
+        <div tal:condition="context/issue">
+        <dl>
+            <dt>
+                <a tal:content="context/issue/to_object/title"
+                   tal:attributes="href
+                                   context/issue/to_object/absolute_url"
+                />
+            </dt>
+            <dd tal:content="context/issue/to_object/description">
+            </dd>
+        </dl>
+        <div/>
+
+
         <h3>Directly implicated parties</h3>
         <dl tal:condition="context/directly_implicated"
             tal:repeat="implicated context/directly_implicated">

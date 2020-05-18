@@ -21,6 +21,21 @@ class IIssueSource(model.Schema):
     """ Marker interface and Dexterity Python Schema for IssueSource
     """
 
+    # Issue
+    directives.widget('issue',
+                      RelatedItemsFieldWidget,
+                      pattern_options={
+                        'mode': 'auto',
+                        'favourites': [],
+                        }
+                      )
+
+    issue = RelationChoice(
+            title=u'Issue',
+            source=CatalogSource(portal_type='Issue'),
+            required=False,
+            )
+
     # Directly implicated
     directives.widget('directly_implicated',
                       RelatedItemsFieldWidget,
