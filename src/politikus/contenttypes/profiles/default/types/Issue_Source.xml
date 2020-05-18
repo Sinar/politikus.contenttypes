@@ -47,6 +47,7 @@
     <element value="plone.categorization"/>
     <element value="plone.basic"/>
     <element value="plone.locking" />
+    <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
     <!--<element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />-->
     <!--<element value="plone.leadimage"/>-->
     <!--<element value="plone.relateditems"/>-->
@@ -62,7 +63,7 @@
 
   <!-- View information -->
   <property name="add_view_expr">string:${folder_url}/++add++Issue Source</property>
-  <property name="default_view">view</property>
+  <property name="default_view">issue-source-view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
   <property name="view_methods">

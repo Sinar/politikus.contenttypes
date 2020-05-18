@@ -6,8 +6,129 @@
       metal:use-macro="context/main_template/macros/master">
 <body>
   <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
+
+        <h3>Directly implicated parties</h3>
+        <dl tal:condition="context/directly_implicated"
+            tal:repeat="implicated context/directly_implicated">
+            <dt>
+            <a href="" 
+               tal:on-error="nothing"
+               tal:attributes="href
+               implicated/to_object/absolute_url"
+               tal:content="implicated/to_object/title">
+            </a>
+            </dt>
+            <dd>
+              <div class="row">
+                <div class="col-md-3">
+                  <img 
+                       tal:on-error="nothing"
+                       tal:condition="implicated/to_object/image"
+                       tal:attributes="src string:
+                       ${implicated/to_object/absolute_url}/@@images/image/thumb"
+                       />
+                </div>
+                <div class="col-md-5">
+                <span
+                     tal:on-error="nothing"
+                     tal:condition="implicated"
+                     tal:content="implicated/to_object/description"
+                />
+                </div>
+              </div>
+            </dd>
+        </dl>
+
+
+        <h3>Indirectly implicated parties</h3>
+        <dl tal:condition="context/indirectly_implicated"
+            tal:repeat="item context/indirectly_implicated">
+            <dt>
+            <a href="" 
+               tal:on-error="nothing"
+               tal:attributes="href
+               item/to_object/absolute_url"
+               tal:content="item/to_object/title">
+            </a>
+            </dt>
+            <dd>
+              <div class="row">
+                <div class="col-md-3">
+                  <img 
+                       tal:on-error="nothing"
+                       tal:condition="item/to_object/image"
+                       tal:attributes="src string:
+                       ${item/to_object/absolute_url}/@@images/image/thumb"
+                       />
+                </div>
+                <div class="col-md-5">
+                <span
+                     tal:on-error="nothing"
+                     tal:condition="item"
+                     tal:content="item/to_object/description"
+                />
+                </div>
+              </div>
+            </dd>
+        </dl>
+
+        <h3>Implicated parties through circumstantance</h3>
+        <dl tal:condition="context/circumstantial_implicated"
+            tal:repeat="item context/circumstantial_implicated">
+            <dt>
+            <a href="" 
+               tal:on-error="nothing"
+               tal:attributes="href
+               item/to_object/absolute_url"
+               tal:content="item/to_object/title">
+            </a>
+            </dt>
+            <dd>
+              <div class="row">
+                <div class="col-md-3">
+                  <img 
+                       tal:on-error="nothing"
+                       tal:condition="item/to_object/image"
+                       tal:attributes="src string:
+                       ${item/to_object/absolute_url}/@@images/image/thumb"
+                       />
+                </div>
+                <div class="col-md-5">
+                <span
+                     tal:on-error="nothing"
+                     tal:condition="item"
+                     tal:content="item/to_object/description"
+                />
+                </div>
+              </div>
+            </dd>
+        </dl>
+
+        <h3>Sources</h3>
+
+        <h4>Link</h4>
+        <p>
+        <span tal:replace="context/author"/>,&nbsp;
+        (<span
+             tal:replace="python:context.toLocalizedTime(context.effective())"
+             />).&nbsp;
+        <span tal:replace="context/title"/>.&nbsp;
+            Retrieved <span
+              tal:replace="python:context.toLocalizedTime(context.modified())"/>,&nbsp;
+              from <span tal:replace="structure view/w/url/render" />
+
+        <h4>File</h4>
+
+        <span tal:replace="structure view/w/source_file/render" />
+
+        <h3>Notes</h3>
+
+        <span tal:replace="structure view/w/notes/render" />
+
+
+
+
+
   </metal:block>
 </body>
 </html>

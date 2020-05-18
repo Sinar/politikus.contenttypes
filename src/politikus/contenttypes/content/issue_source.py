@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# from plone.app.textfield import RichText
+from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.namedfile import field as namedfile
@@ -110,7 +110,15 @@ class IIssueSource(model.Schema):
     source_file = namedfile.NamedBlobFile(
         title=_(u'Source document or file'),
         required=False,
+
     )
+ 
+    dexteritytextindexer.searchable('notes')
+    notes = RichText(
+         title=_(u'Text'),
+         required=False
+     )
+
 
 
     # If you want, you can load a xml model created TTW here
