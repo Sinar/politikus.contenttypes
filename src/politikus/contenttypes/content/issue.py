@@ -19,21 +19,6 @@ class IIssue(model.Schema):
     """ Marker interface for Issue
     """
 
-    # Implicated Persons 
-    directives.widget('implicated',
-                      RelatedItemsFieldWidget,
-                      pattern_options={
-                        'mode': 'auto',
-                        'favourites': [],
-                        }
-                      )
-
-    implicated = RelationChoice(
-            title=u'Implicated',
-            source=CatalogSource(portal_type='Person'),
-            required=False,
-            )
-
 
 @implementer(IIssue)
 class Issue(Container):
