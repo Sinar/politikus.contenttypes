@@ -15,7 +15,6 @@ class IssueView(DefaultView):
 
     def __call__(self):
         # Implement your own actions:
-        self.context.orderObjects(key="EffectiveDate", reverse=True)
         return super(IssueView, self).__call__()
 
     def can_editor_view(self):
