@@ -8,7 +8,7 @@
 
   <browser:page
     name="issue-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="politikus.contenttypes.content.issue.IIssue"
     class=".issue_view.IssueView"
     template="issue_view.pt"
     permission="zope2.View"
@@ -16,9 +16,10 @@
 
   <browser:page
     name="issue-source-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="politikus.contenttypes.content.issue_source.IIssueSource"
     class=".issue_source_view.IssueSourceView"
     template="issue_source_view.pt"
     permission="zope2.View"
     />
+
 </configure>
