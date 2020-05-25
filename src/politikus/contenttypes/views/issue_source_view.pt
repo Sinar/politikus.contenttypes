@@ -26,7 +26,7 @@
         <div/>
 
 
-        <h3>Directly implicated parties</h3>
+        <h4>Directly implicated parties</h4>
         <dl tal:condition="context/directly_implicated"
             tal:repeat="implicated context/directly_implicated">
             <dt>
@@ -59,7 +59,7 @@
         </dl>
 
 
-        <h3>Indirectly implicated parties</h3>
+        <h4>Indirectly implicated parties</h4>
         <dl tal:condition="context/indirectly_implicated"
             tal:repeat="item context/indirectly_implicated">
             <dt>
@@ -91,7 +91,7 @@
             </dd>
         </dl>
 
-        <h3>Implicated parties through circumstantance</h3>
+        <h4>Implicated parties through circumstantance</h4>
         <dl tal:condition="context/circumstantial_implicated"
             tal:repeat="item context/circumstantial_implicated">
             <dt>
@@ -123,7 +123,7 @@
             </dd>
         </dl>
 
-        <h3>Disclosing Parties</h3>
+        <h4>Disclosing Parties</h4>
         <dl tal:condition="context/disclosing"
             tal:repeat="item context/disclosing">
             <dt>
@@ -157,7 +157,7 @@
 
 
 
-        <h3>Source</h3>
+        <h4>Source</h4>
 
         <h4>Link</h4>
         <p>
@@ -170,11 +170,20 @@
               tal:replace="python:context.toLocalizedTime(context.modified())"/>,&nbsp;
               from <span tal:replace="structure view/w/url/render" />
 
-        <h4>File</h4>
+        <h4>File(s)</h4>
 
-        <span tal:replace="structure view/w/source_file/render" />
+        <ul tal:repeat="item
+                        python:context.listFolderContents(contentFilter={'portal_type'
+                        : ['File','Image']})">
+            <li>
+                <a href=""
+                   tal:attributes="href string:${item/absolute_url}/view">
+                <span tal:replace="item/title"/></a>
+            </li>
+        </ul>
 
-        <h3>Notes</h3>
+
+        <h4>Notes</h4>
 
         <span tal:replace="structure view/w/notes/render" />
 
