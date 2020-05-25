@@ -73,7 +73,7 @@ class IIssueSource(model.Schema):
             title=_(u'Indirectly Implicated'),
             description=_(u'''
             Persons, Organizations or Memberships, indirectly charged,
-            secondary actor or refered to in statement related to 
+            secondary actor or refered to in statement related to
             this issue.'''),
             default=[],
             value_type=RelationChoice(
@@ -85,6 +85,17 @@ class IIssueSource(model.Schema):
                 ),
             required=False,
             )
+
+    # Circumstantially implicated
+
+    directives.widget('circumstantial_implicated',
+                      RelatedItemsFieldWidget,
+                      pattern_options={
+                        'mode': 'auto',
+                        'favourites': [],
+                        }
+                      )
+
 
     circumstantial_implicated = RelationList(
             title=_(u'Circumstantially Implicated'),
@@ -99,6 +110,30 @@ class IIssueSource(model.Schema):
                     'Organization',
                     'Relationship',
                     'Membership'])
+                ),
+            required=False,
+            )
+
+    # Disclosing
+    directives.widget('disclosing',
+                      RelatedItemsFieldWidget,
+                      pattern_options={
+                        'mode': 'auto',
+                        'favourites': [],
+                        }
+                      )
+
+    disclosing = RelationList(
+            title=_(u'Disclosing'),
+            description=_(u'''
+            Parties disclosing this information individuals
+            or organizations'''),
+            default=[],
+            value_type=RelationChoice(
+                source=CatalogSource(portal_type=[
+                    'Person',
+                    'Organization', ]
+                    )
                 ),
             required=False,
             )

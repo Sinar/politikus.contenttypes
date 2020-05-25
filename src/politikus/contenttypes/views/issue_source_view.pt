@@ -123,7 +123,41 @@
             </dd>
         </dl>
 
-        <h3>Sources</h3>
+        <h3>Disclosing Parties</h3>
+        <dl tal:condition="context/disclosing"
+            tal:repeat="item context/disclosing">
+            <dt>
+            <a href="" 
+               tal:on-error="nothing"
+               tal:attributes="href
+               item/to_object/absolute_url"
+               tal:content="item/to_object/title">
+            </a>
+            </dt>
+            <dd>
+              <div class="row">
+                <div class="col-md-3">
+                  <img 
+                       tal:on-error="nothing"
+                       tal:condition="item/to_object/image"
+                       tal:attributes="src string:
+                       ${item/to_object/absolute_url}/@@images/image/thumb"
+                       />
+                </div>
+                <div class="col-md-5">
+                <span
+                     tal:on-error="nothing"
+                     tal:condition="item"
+                     tal:content="item/to_object/description"
+                />
+                </div>
+              </div>
+            </dd>
+        </dl>
+
+
+
+        <h3>Source</h3>
 
         <h4>Link</h4>
         <p>

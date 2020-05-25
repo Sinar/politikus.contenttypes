@@ -87,10 +87,31 @@
                           </tal:separator>
                       </span>
               </div>
+              <div tal:condition="python:
+                  len(item.disclosing)">
+                  <strong>Disclosing:</strong>
+                      <span tal:repeat="implicated
+                                         item/disclosing">
+                          <a tal:attributes="href
+                                               implicated/to_object/absolute_url">
+                           
+                          <img
+                              tal:condition="implicated/to_object/image"
+                              tal:attributes="src string:
+                       ${implicated/to_object/absolute_url}/@@images/image/icon"
+                        />
+
+                                              
+                          <span tal:content="implicated/to_object/title"></span>
+                          </a>
+                          <tal:separator tal:condition="not:
+                                                         repeat/implicated/end">
+                          ,
+                          </tal:separator>
+                      </span>
+              </div>
           </li>
       </ul>
-
-
 
   <h3>Notes</h3>
 
