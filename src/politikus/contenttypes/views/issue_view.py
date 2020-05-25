@@ -2,8 +2,14 @@
 
 # from politikus.contenttypes import _
 # from Products.Five.browser import BrowserView
-from plone.dexterity.browser.view import DefaultView
+
+from Acquisition import aq_inner
+from zope.component import getUtility
+from zope.intid.interfaces import IIntIds
 from zope.security import checkPermission
+from zc.relation.interfaces import ICatalog
+from zope.schema.interfaces import IVocabularyFactory
+from plone.dexterity.browser.view import DefaultView
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -21,9 +27,28 @@ class IssueView(DefaultView):
         return checkPermission('cmf.ModifyPortalContent', self.context)
 
     def source_timeline(self):
-        # returns list of Issue Sources objects
+        """
+        Return back references from source object on specified attribute_name
+        """
+        catalog = getUtility(ICatalog)
+        intids = getUtility(IIntIds)
 
-        sources = self.context.listFolderContents(contentFilter={
-            "portal_type": "Issue Source"
-            })
-        return sources
+        source_object = self.context
+        attribute_name = 'issue'
+
+        result = []
+
+        for rel in catalog.findRelations(
+            dict(to_id=intids.getId(aq_inner(source_object)),
+                 from_attribute=attribute_name)
+              ):
+           
+            obj = intids.queryObject(rel.from_id)
+
+            if obj is not None and checkPermission('zope2.View', obj):
+                if obj.portal_type == 'Issue Source':
+                    result.append(obj)
+
+        return result
+
+
