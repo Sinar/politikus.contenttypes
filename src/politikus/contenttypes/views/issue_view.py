@@ -42,7 +42,7 @@ class IssueView(DefaultView):
             dict(to_id=intids.getId(aq_inner(source_object)),
                  from_attribute=attribute_name)
               ):
-           
+
             obj = intids.queryObject(rel.from_id)
 
             if obj is not None and checkPermission('zope2.View', obj):
@@ -50,5 +50,3 @@ class IssueView(DefaultView):
                     result.append(obj)
 
         return result
-
-

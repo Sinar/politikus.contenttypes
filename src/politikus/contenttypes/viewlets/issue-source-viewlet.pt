@@ -1,3 +1,94 @@
-<div class="days_to_conf">
-    ${view/message}
+<div class="issue-source">
+    <hr />
+
+    <h4>Cited on Issues</h4>
+    Subject has been cited for issues for the following known sources.
+    <p class="discreet">
+    <i>These are sources, and not weighted on strength to make a case
+        for this subject. Please refer to editorial or enforcement
+        guidelines.</i>
+    </p>
+
+    <div
+        tal:condition="python:view.backrefs(attribute_name='directly_implicated')">
+        <h5>Directly Implicated</h5>
+        <div tal:repeat="source python:
+            view.backrefs(attribute_name='directly_implicated')">
+                <a tal:attributes="href source/issue/to_object/absolute_url">
+                <p tal:content="source/issue/to_object/title"></p>
+                </a>
+                <small>
+                    <span tal:replace="source/author"/>
+            (<span
+             tal:replace="python:source.toLocalizedTime(source.effective())"
+                 />).&nbsp;
+                 <a tal:attributes="href source/absolute_url">
+                 <span tal:replace="source/title" />
+                 </a>
+                </small>
+        </div>
+    </div>
+
+    <div
+        tal:condition="python:view.backrefs(attribute_name='indirectly_implicated')">
+        <h5>Indirectly Implicated</h5>
+        <div tal:repeat="source python:
+            view.backrefs(attribute_name='indirectly_implicated')">
+                <a tal:attributes="href source/issue/to_object/absolute_url">
+                <p tal:content="source/issue/to_object/title"></p>
+                </a>
+                <small>
+                    <span tal:replace="source/author"/>
+            (<span
+             tal:replace="python:source.toLocalizedTime(source.effective())"
+                 />).&nbsp;
+                 <a tal:attributes="href source/absolute_url">
+                 <span tal:replace="source/title" />
+                 </a>
+                </small>
+        </div>
+    </div>
+
+    <div
+        tal:condition="python:view.backrefs(attribute_name='circumstantial_implicated')">
+        <h5>Cirmcumstantially Implicated</h5>
+        <div tal:repeat="source python:
+            view.backrefs(attribute_name='circumstantial_implicated')">
+                <a tal:attributes="href source/issue/to_object/absolute_url">
+                <p tal:content="source/issue/to_object/title"></p>
+                </a>
+                <small>
+                    <span tal:replace="source/author"/>
+            (<span
+             tal:replace="python:source.toLocalizedTime(source.effective())"
+                 />).&nbsp;
+                 <a tal:attributes="href source/absolute_url">
+                 <span tal:replace="source/title" />
+                 </a>
+                </small>
+        </div>
+    </div>
+
+
+    <div
+        tal:condition="python:view.backrefs(attribute_name='disclosing')">
+        <h5>Disclosing</h5>
+        <div tal:repeat="source python:
+            view.backrefs(attribute_name='disclosing')">
+                <a tal:attributes="href source/issue/to_object/absolute_url">
+                <p tal:content="source/issue/to_object/title"></p>
+                </a>
+                <small>
+                    <span tal:replace="source/author"/>
+            (<span
+             tal:replace="python:source.toLocalizedTime(source.effective())"
+                 />).&nbsp;
+                 <a tal:attributes="href source/absolute_url">
+                 <span tal:replace="source/title" />
+                 </a>
+                </small>
+        </div>
+    </div>
+
+
 </div>
