@@ -158,12 +158,6 @@ class IIssueSource(model.Schema):
     url = schema.URI(title=_(u'Source Link'),
                      required=False,)
 
-    source_file = namedfile.NamedBlobFile(
-        title=_(u'Source document or file'),
-        required=False,
-
-    )
- 
     dexteritytextindexer.searchable('notes')
     notes = RichText(
          title=_(u'Text'),
