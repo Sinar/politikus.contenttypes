@@ -53,7 +53,7 @@ class IssueView(DefaultView):
             sorted_effective = sorted(result,
                                       key=methodcaller('effective'),
                                       reverse=True)
-            if sorted_effective:
-                return sorted_effective
-            else:
-                return None
+        if sorted_effective:
+            return sorted_effective
+        else:
+            return None
