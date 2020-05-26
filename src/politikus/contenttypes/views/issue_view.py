@@ -10,6 +10,7 @@ from zope.security import checkPermission
 from zc.relation.interfaces import ICatalog
 from zope.schema.interfaces import IVocabularyFactory
 from plone.dexterity.browser.view import DefaultView
+from operator import methodcaller
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -49,4 +50,8 @@ class IssueView(DefaultView):
                 if obj.portal_type == 'Issue Source':
                     result.append(obj)
 
-        return result
+            sorted_effective = sorted(result,
+                                      key=methodcaller('effective'),
+                                      reverse=True)
+
+        return sorted_effective
