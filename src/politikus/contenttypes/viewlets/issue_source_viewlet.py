@@ -30,7 +30,9 @@ class IssueSourceViewlet(ViewletBase):
 
             if obj is not None and checkPermission('zope2.View', obj):
                 if obj.portal_type == 'Issue Source':
-                    result.append(obj)
+                    # Temporary workaround for broken objects
+                    if obj.absolute_url():
+                        result.append(obj)
 
         return result
 
