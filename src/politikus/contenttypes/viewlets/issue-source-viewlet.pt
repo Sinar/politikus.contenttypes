@@ -15,8 +15,7 @@
         <div 
             tal:repeat="source python:
             view.backrefs(attribute_name='directly_implicated')">
-                <a  tal:on-error="nothing"
-                    tal:attributes="href source/issue/to_object/absolute_url">
+                <a tal:attributes="href source/issue/to_object/absolute_url">
                 <p tal:content="source/issue/to_object/title"></p>
                 </a>
                 <small>
