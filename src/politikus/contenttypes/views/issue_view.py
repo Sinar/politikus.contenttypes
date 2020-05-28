@@ -38,6 +38,7 @@ class IssueView(DefaultView):
         attribute_name = 'issue'
 
         result = []
+        sorted_effective = []
 
         for rel in catalog.findRelations(
             dict(to_id=intids.getId(aq_inner(source_object)),
