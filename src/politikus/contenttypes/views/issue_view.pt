@@ -7,7 +7,7 @@
 <body>
   <metal:block fill-slot="content-core">
 
-  <h3>Timeline</h3>
+  <h3>Disclosure Timeline</h3>
       <ul tal:repeat="item view/source_timeline">
           <li>
               <span
