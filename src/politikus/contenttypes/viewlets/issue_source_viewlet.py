@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from plone.app.layout.viewlets import ViewletBase
 from Acquisition import aq_inner
+from plone.app.layout.viewlets import ViewletBase
+from zc.relation.interfaces import ICatalog
 from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
-from zope.security import checkPermission
-from zc.relation.interfaces import ICatalog
 from zope.schema.interfaces import IVocabularyFactory
+from zope.security import checkPermission
 
 
 class IssueSourceViewlet(ViewletBase):

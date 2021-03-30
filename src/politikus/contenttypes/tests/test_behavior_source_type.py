@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from politikus.contenttypes.behaviors.source_type import ISourceTypeMarker
-from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.behavior.interfaces import IBehavior
+from politikus.contenttypes.behaviors.source_type import ISourceTypeMarker
+from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa
 from zope.component import getUtility
 
 import unittest

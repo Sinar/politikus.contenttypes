@@ -4,13 +4,14 @@
 # from Products.Five.browser import BrowserView
 
 from Acquisition import aq_inner
+from operator import methodcaller
+from plone.dexterity.browser.view import DefaultView
+from zc.relation.interfaces import ICatalog
 from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
-from zope.security import checkPermission
-from zc.relation.interfaces import ICatalog
 from zope.schema.interfaces import IVocabularyFactory
-from plone.dexterity.browser.view import DefaultView
-from operator import methodcaller
+from zope.security import checkPermission
+
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 

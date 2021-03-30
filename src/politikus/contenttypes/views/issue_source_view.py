@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from politikus.contenttypes import _
 from plone.dexterity.browser.view import DefaultView
+from politikus.contenttypes import _
 
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile

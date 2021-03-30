@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
-from politikus.contenttypes.content.issue_source import IIssueSource  # NOQA E501
-from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa
 from plone import api
 from plone.api.exc import InvalidParameterError
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
+from politikus.contenttypes.content.issue_source import IIssueSource  # NOQA E501
+from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa
 from zope.component import createObject
 from zope.component import queryUtility
 
 import unittest
-
-
 
 
 class IssueSourceIntegrationTest(unittest.TestCase):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_FUNCTIONAL_TESTING
-from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_FUNCTIONAL_TESTING
+from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING
 from zope.component import getMultiAdapter
 from zope.component.interfaces import ComponentLookupError
 

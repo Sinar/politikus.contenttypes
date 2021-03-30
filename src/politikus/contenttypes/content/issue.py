@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+from collective import dexteritytextindexer
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
-from collective import dexteritytextindexer
 # from plone.autoform.interfaces import IFormFieldProvider
 # from zope.interface import alsoProvides
 from plone.supermodel import model
@@ -10,6 +10,8 @@ from plone.supermodel import model
 from politikus.contenttypes import _
 # from zope.schema.vocabulary import SimpleVocabulary
 from zope.interface import implementer
+
+
 # from plone.indexer import indexer
 
 # from z3c.relationfield.schema import RelationChoice

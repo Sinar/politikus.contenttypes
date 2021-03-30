@@ -7,6 +7,16 @@
   -*- extra stuff goes here -*-
 
   <browser:viewlet
+     name="editors-notes"
+     for="plone.app.contenttypes.interfaces.IDocument"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="politikus.contenttypes.interfaces.IPolitikusContenttypesLayer"
+     class=".editors_notes.EditorsNotes"
+     template="editors-notes.pt"
+     permission="zope2.View"
+     />
+
+  <browser:viewlet
      name="issue-source-viewlet"
      for="popolo.contenttypes.content.person.IPerson"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"

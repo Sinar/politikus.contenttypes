@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa: E501
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa: E501
 
 import unittest
 
@@ -34,9 +34,8 @@ class TestSetup(unittest.TestCase):
 
     def test_browserlayer(self):
         """Test that IPolitikusContenttypesLayer is registered."""
-        from politikus.contenttypes.interfaces import (
-            IPolitikusContenttypesLayer)
         from plone.browserlayer import utils
+        from politikus.contenttypes.interfaces import IPolitikusContenttypesLayer
         self.assertIn(
             IPolitikusContenttypesLayer,
             utils.registered_layers())
@@ -64,9 +63,8 @@ class TestUninstall(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         """Test that IPolitikusContenttypesLayer is removed."""
-        from politikus.contenttypes.interfaces import \
-            IPolitikusContenttypesLayer
         from plone.browserlayer import utils
+        from politikus.contenttypes.interfaces import IPolitikusContenttypesLayer
         self.assertNotIn(
             IPolitikusContenttypesLayer,
             utils.registered_layers())
