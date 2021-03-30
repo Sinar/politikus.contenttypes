@@ -28,14 +28,6 @@ class IIssue(model.Schema):
          required=False
      )
 
-    directives.read_permission(editor_notes='cmf.ModifyPortalContent')
-    directives.write_permission(editor_notes='cmf.ModifyPortalContent')
-    editor_notes = RichText(
-        title=_(u'Private Notes (only for Editors)'),
-        required=False
-    )
-
-
 @implementer(IIssue)
 class Issue(Container):
     """

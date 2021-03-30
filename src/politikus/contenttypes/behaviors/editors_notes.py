@@ -8,6 +8,9 @@ from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
+from plone.app.textfield import RichText
+from plone.autoform import directives
+from collective import dexteritytextindexer
 from zope.interface import provider
 
 
@@ -20,12 +23,14 @@ class IEditorsNotes(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    dexteritytextindexer.searchable('editors_notes')
+    directives.read_permission(editors_notes='cmf.ModifyPortalContent')
+    directives.write_permission(editors_notes='cmf.ModifyPortalContent')
+    editors_notes = RichText(
+        title=_(u'Editors Notes'),
+        description=_(u'Notes viewable only for Editors'),
         required=False,
     )
-
 
 @implementer(IEditorsNotes)
 @adapter(IEditorsNotesMarker)
@@ -34,11 +39,11 @@ class EditorsNotes(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def editors_notes(self):
+        if safe_hasattr(self.context, 'editors_notes'):
+            return self.context.editors_notes
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @editors_notes.setter
+    def editors_notes(self, value):
+        self.context.editors_notes = value
