@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="politikus.contenttypes.editors_notes"
+        title="EditorsNotes"
+        description="Richtext field that is only viewable by Editors even if content is published"
+        provides=".editors_notes.IEditorsNotes"
+        factory=".editors_notes.EditorsNotes"
+        marker=".editors_notes.IEditorsNotesMarker"
+        />
+
+
+    <plone:behavior
         name="politikus.contenttypes.source_type"
         title="SourceType"
         description="Source type such as media report, parliamentary report etc."
