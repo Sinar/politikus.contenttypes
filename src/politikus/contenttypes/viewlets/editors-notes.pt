@@ -1,3 +1,16 @@
-<div class="days_to_conf">
-    ${view/message}
+<div id="EditorsNotes"
+     tal:condition="context/editors_notes"
+     tal:on-error="nothing"
+     >
+
+    <h3>Editor Notes (Private)</h3>
+    <p class="portalMessage warning">
+    Content below is not visible to the public
+    </p>
+
+    <div 
+        tal:on-error="nothing"
+        tal:content="structure context/editors_notes/output">
+    </div>
+
 </div>

@@ -8,12 +8,11 @@
 
   <browser:viewlet
      name="editors-notes"
-     for="plone.app.contenttypes.interfaces.IDocument"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.contenttypes.interfaces.IPolitikusContenttypesLayer"
      class=".editors_notes.EditorsNotes"
      template="editors-notes.pt"
-     permission="zope2.View"
+     permission="cmf.ModifyPortalContent"
      />
 
   <browser:viewlet

@@ -117,16 +117,6 @@
 
   <div tal:content="structure view/w/notes/render"></div>
 
-  <div tal:condition="view/can_editor_view">
-      <h3>Editor Notes (Private)</h3>
-      <p class="portalMessage warning">
-      Content below is not visible to the public
-      </p>
-
-      <div tal:content="structure context/editors_notes/output">
-      </div>
-  </div>
-
             <h4>Subitems</h4>
 
             <ul tal:repeat="item context/listFolderContents">
