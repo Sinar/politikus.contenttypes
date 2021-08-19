@@ -32,7 +32,7 @@ class IIssueSource(model.Schema):
     issue = RelationChoice(
             title=u'Issue',
             source=CatalogSource(portal_type='Issue'),
-            required=False,
+            required=True,
             )
 
     # Directly implicated
