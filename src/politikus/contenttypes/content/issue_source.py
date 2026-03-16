@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective import dexteritytextindexer
+from plone.app.dexterity import textindexer
 from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
@@ -137,7 +137,7 @@ class IIssueSource(model.Schema):
             required=False,
             )
 
-    dexteritytextindexer.searchable('author')
+    textindexer.searchable('author')
     author = schema.TextLine(
         title=_(u'Author, Organization or Website Name'),
         required=False,
@@ -148,7 +148,7 @@ class IIssueSource(model.Schema):
             required=False,
             )
 
-    dexteritytextindexer.searchable('author')
+    textindexer.searchable('author')
     author = schema.TextLine(
         title=_(u'Author, Organization or Website Name'),
         required=False,
@@ -157,7 +157,7 @@ class IIssueSource(model.Schema):
     url = schema.URI(title=_(u'Source Link'),
                      required=False,)
 
-    dexteritytextindexer.searchable('notes')
+    textindexer.searchable('notes')
     notes = RichText(
          title=_(u'Text'),
          required=False

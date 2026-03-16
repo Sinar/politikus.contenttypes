@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective import dexteritytextindexer
+from plone.app.dexterity import textindexer
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
@@ -24,7 +24,7 @@ class IIssue(model.Schema):
     """ Marker interface for Issue
     """
 
-    dexteritytextindexer.searchable('notes')
+    textindexer.searchable('notes')
     notes = RichText(
          title=_(u'Text'),
          required=False
