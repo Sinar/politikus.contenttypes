@@ -17,7 +17,7 @@
 
   <browser:viewlet
      name="issue-source-viewlet"
-     for="popolo.contenttypes.content.person.IPerson"
+     for="politikus.popolo.content.person.IPerson"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.contenttypes.interfaces.IPolitikusContenttypesLayer"
      class=".issue_source_viewlet.IssueSourceViewlet"
@@ -27,7 +27,7 @@
 
   <browser:viewlet
      name="issue-source-viewlet"
-     for="popolo.contenttypes.content.organization.IOrganization"
+     for="politikus.popolo.content.organization.IOrganization"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.contenttypes.interfaces.IPolitikusContenttypesLayer"
      class=".issue_source_viewlet.IssueSourceViewlet"
