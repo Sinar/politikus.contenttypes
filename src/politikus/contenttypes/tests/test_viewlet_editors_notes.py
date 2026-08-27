@@ -27,7 +27,7 @@ class ViewletIntegrationTest(unittest.TestCase):
 
     def test_editors_notes_is_registered(self):
         view = BrowserView(self.portal['other-document'], self.request)
-        manager_name = 'plone.abovecontenttitle'
+        manager_name = 'plone.belowcontentbody'
         alsoProvides(self.request, IPolitikusContenttypesLayer)
         manager = queryMultiAdapter(
             (self.portal['other-document'], self.request, view),
@@ -43,7 +43,7 @@ class ViewletIntegrationTest(unittest.TestCase):
     # XXX would be nice to have this test working:
     # def test_editors_notes_is_not_available_on_newsitem(self):
     #     view = BrowserView(self.portal['newsitem'], self.request)
-    #     manager_name = 'plone.abovecontenttitle'
+    #     manager_name = 'plone.belowcontentbody'
     #     alsoProvides(self.request, IPolitikusContenttypesLayer)
     #     manager = queryMultiAdapter(
     #         (self.portal['newsitem'], self.request, view),

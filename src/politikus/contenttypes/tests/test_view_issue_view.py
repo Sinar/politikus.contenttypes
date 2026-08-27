@@ -5,8 +5,11 @@ from plone.app.testing import TEST_USER_ID
 from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_FUNCTIONAL_TESTING
 from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING
 from zope.component import getMultiAdapter
-from zope.component.interfaces import ComponentLookupError
+from zope.interface.interfaces import ComponentLookupError
 
+from zope.interface import alsoProvides
+
+from politikus.contenttypes.content.issue import IIssue
 import unittest
 
 
@@ -21,6 +24,7 @@ class ViewsIntegrationTest(unittest.TestCase):
         api.content.create(self.portal, 'Document', 'front-page')
 
     def test_issue_view_is_registered(self):
+        alsoProvides(self.portal['other-folder'], IIssue)
         view = getMultiAdapter(
             (self.portal['other-folder'], self.portal.REQUEST),
             name='issue-view'

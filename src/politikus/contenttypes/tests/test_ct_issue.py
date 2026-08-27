@@ -1,20 +1,15 @@
 # -*- coding: utf-8 -*-
 from plone import api
+from plone.api.exc import InvalidParameterError
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
+from politikus.contenttypes.content.issue import IIssue
 from politikus.contenttypes.testing import POLITIKUS_CONTENTTYPES_INTEGRATION_TESTING  # noqa
 from zope.component import createObject
 from zope.component import queryUtility
 
 import unittest
-
-
-try:
-    from plone.dexterity.schema import portalTypeToSchemaName
-except ImportError:
-    # Plone < 5
-    from plone.dexterity.utils import portalTypeToSchemaName
 
 
 class IssueIntegrationTest(unittest.TestCase):
@@ -30,8 +25,7 @@ class IssueIntegrationTest(unittest.TestCase):
     def test_ct_issue_schema(self):
         fti = queryUtility(IDexterityFTI, name='Issue')
         schema = fti.lookupSchema()
-        schema_name = portalTypeToSchemaName('Issue')
-        self.assertEqual(schema_name, schema.getName())
+        self.assertIs(schema, IIssue)
 
     def test_ct_issue_fti(self):
         fti = queryUtility(IDexterityFTI, name='Issue')
@@ -67,7 +61,9 @@ class IssueIntegrationTest(unittest.TestCase):
             u'{0} is not globally addable!'.format(fti.id)
         )
 
-    def test_ct_issue_filter_content_type_false(self):
+    def test_ct_issue_filter_content_type_true(self):
+        # The Issue FTI filters content types; a Document is not in its
+        # allowed_content_types and must be rejected.
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         fti = queryUtility(IDexterityFTI, name='Issue')
         portal_types = self.portal.portal_types
@@ -78,12 +74,9 @@ class IssueIntegrationTest(unittest.TestCase):
             title='Issue container',
          )
         self.parent = self.portal[parent_id]
-        obj = api.content.create(
-            container=self.parent,
-            type='Document',
-            title='My Content',
-        )
-        self.assertTrue(
-            obj,
-            u'Cannot add {0} to {1} container!'.format(obj.id, fti.id)
-        )
+        with self.assertRaises(InvalidParameterError):
+            api.content.create(
+                container=self.parent,
+                type='Document',
+                title='My Content',
+            )
